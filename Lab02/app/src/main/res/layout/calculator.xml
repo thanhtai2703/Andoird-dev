@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/black"
+    android:weightSum="10">
+<!--    Dấu bằng-->
+    <Button
+        android:id="@+id/btnEqualsTop"
+        style="@style/CalcOperatorButton"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:text="="
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:textSize="20dp"
+        android:layout_marginBottom="8dp" />
+<!--    Hiển thị kết quả:-->
+    <EditText
+        android:id="@+id/edtInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btnEqualsTop"
+        android:layout_toStartOf="@id/btnEqualsTop"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="8dp"
+        android:text="0.0"
+        android:gravity="start"
+        android:inputType="numberDecimal|numberSigned"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:padding="8dp"
+        android:singleLine="true"
+        android:importantForAutofill="no" />
+<!--    Các nút tính toán-->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/edtInput"
+        android:layout_marginTop="16dp"
+        android:columnCount="4"
+        android:rowCount="4">
+        <Button
+            android:id="@+id/btn7"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:textSize="20dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/btn8"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/btn9"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+
+            android:text="9" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="@style/CalcOperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+
+            android:text="+" />
+        <Button
+            android:id="@+id/btn4"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="20dp"
+
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="4" />
+        <Button
+            android:id="@+id/btn5"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+
+            android:text="5" />
+        <Button
+            android:id="@+id/btn6"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+
+            android:text="6" />
+
+        <Button
+            android:id="@+id/btnSub"
+            style="@style/CalcOperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/btn1"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:textSize="20dp"
+
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+            android:text="2" />
+        <Button
+            android:id="@+id/btn3"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+
+            android:text="3" />
+
+        <Button
+            android:id="@+id/btnMul"
+            style="@style/CalcOperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+            android:text="*" />
+        <Button
+            android:id="@+id/btn0"
+            style="@style/CalcNumberButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btnDot"
+            style="@style/CalcOperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+            android:text="." />
+
+        <Button
+            android:id="@+id/btnClear"
+            style="@style/CalcOperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+            android:text="C" />
+
+        <Button
+            android:id="@+id/btnDiv"
+            style="@style/CalcOperatorButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="20dp"
+            android:text="/" />
+    </GridLayout>
+
+</RelativeLayout>

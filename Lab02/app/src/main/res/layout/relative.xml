@@ -6,10 +6,8 @@
     android:padding="16dp"
     android:background="#FFFFFF"
     tools:context=".MainActivity">
-
-    <!-- Thanh tiêu đề -->
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#1976D2"
@@ -18,17 +16,14 @@
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:textSize="20sp" />
-
-    <!-- Cột 1: Các nhãn -->
     <LinearLayout
         android:id="@+id/col1"
-        android:layout_below="@id/tvTitle"
+        android:layout_below="@id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +31,6 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginBottom="12dp" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,8 +46,6 @@
             android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <!-- Cột 2: Textbox -->
     <LinearLayout
         android:id="@+id/col2"
         android:layout_width="200dp"
@@ -80,20 +72,17 @@
             android:hint="Nhập địa chỉ"
             android:layout_marginTop="10dp" />
     </LinearLayout>
-
-    <!-- Cột 3: Hình ảnh -->
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_alignTop="@id/col2"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="19dp"
         android:layout_toEndOf="@id/col2"
-        android:layout_marginStart="20dp"
-        android:src="@drawable/avatar"
+        android:background="#CCCCCC"
         android:scaleType="centerCrop"
-        android:background="#CCCCCC" />
-
-    <!-- Hàng nút bấm -->
+        android:src="@drawable/avatar" />
     <LinearLayout
         android:id="@+id/buttonRow"
         android:layout_width="wrap_content"
@@ -102,14 +91,12 @@
         android:layout_alignStart="@id/col2"
         android:orientation="horizontal"
         android:layout_marginTop="20dp">
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cập nhật"
             android:backgroundTint="#1976D2"
             android:textColor="@android:color/white" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,5 +105,4 @@
             android:backgroundTint="#03A9F4"
             android:textColor="@android:color/white" />
     </LinearLayout>
-
 </RelativeLayout>

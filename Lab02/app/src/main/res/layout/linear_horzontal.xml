@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:weightSum="12"
+    android:background="@color/black">
+<!--    Layout 1 2-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:weightSum="2">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@android:color/black"
+            android:background="#C8D563" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="2"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@android:color/black"
+            android:background="#80762B" />
+    </LinearLayout>
+<!--    Layout 3,4,5-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:weightSum="3">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="3"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@android:color/black"
+            android:background="#EC8BF0"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="4"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@android:color/black"
+            android:background="#FFEB3B"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="5"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@android:color/black"
+            android:background="#E51414"/>
+    </LinearLayout>
+<!--    Layout 6,7-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:weightSum="4">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="6"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@android:color/black"
+            android:background="#995D56"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="7"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@android:color/black"
+            android:background="#D6B9AF"/>
+    </LinearLayout>
+<!--    chữ nodejs-->
+    <TextView
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:gravity="start"
+        android:text="Node JS"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@android:color/white"
+        android:background="#0C37BC" />
+</LinearLayout>

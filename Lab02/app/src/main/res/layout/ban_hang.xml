@@ -50,13 +50,13 @@
         app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/box2"
-        app:layout_constraintHorizontalWeight="1"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_marginTop="24dp">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_person" />
+            android:src="@drawable/resume" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -76,13 +76,13 @@
         app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintStart_toEndOf="@id/box1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontalWeight="1"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_marginTop="24dp">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_sales" />
+            android:src="@drawable/checklist" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,13 +102,13 @@
         app:layout_constraintTop_toBottomOf="@id/box1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/box4"
-        app:layout_constraintHorizontalWeight="1"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_marginTop="32dp">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_customer" />
+            android:src="@drawable/collaboration" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -128,13 +128,13 @@
         app:layout_constraintTop_toBottomOf="@id/box2"
         app:layout_constraintStart_toEndOf="@id/box3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontalWeight="1"
+        app:layout_constraintHorizontal_weight="1"
         android:layout_marginTop="32dp">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_route" />
+            android:src="@drawable/map" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -159,7 +159,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_product" />
+            android:src="@drawable/search" />
 
         <TextView
             android:layout_width="wrap_content"

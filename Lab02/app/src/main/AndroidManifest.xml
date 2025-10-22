@@ -21,5 +21,16 @@
             </intent-filter>
         </activity>
 
+        <!-- Registered screens for the five exercises -->
+        <activity android:name=".Bai11Activity" />
+        <activity android:name=".Bai12Activity" />
+        <activity
+            android:name=".Bai2Activity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".Bai3Activity" />
+        <activity
+            android:name=".Bai4Activity"
+            android:screenOrientation="landscape" />
+
     </application>
 </manifest>
