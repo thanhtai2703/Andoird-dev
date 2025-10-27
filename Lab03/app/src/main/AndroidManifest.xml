@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab03">
         <activity
-            android:name=".Bai2_Activity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Bai1_Activity_2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Bai1_Activity_1"
             android:exported="false" />
         <activity
-            android:name=".Bai1_Activity_1"
+            android:name=".Bai2_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

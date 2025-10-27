@@ -40,5 +40,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation(files("libs/jeval.jar"))
+    implementation(files("libs/jeval-0.9.4.jar"))
 }
