@@ -2,11 +2,16 @@ package com.example.lab03;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,29 +47,94 @@ public class Bai1_Activity_1 extends AppCompatActivity {
         EditText edtExtra = findViewById(R.id.edt_extra_info);
         Button btnSend = findViewById(R.id.btn_send);
 
+        // Set Đại học as default
+        rbDaiHoc.setChecked(true);
+
+        // Name validation: not empty and at least 3 characters
+        edtName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void afterTextChanged(Editable s) {
+                String name = s.toString().trim();
+                if (name.isEmpty() || name.length() < 3) {
+                    edtName.setError("Tên phải có ít nhất 3 ký tự");
+                } else {
+                    edtName.setError(null);
+                }
+            }
+        });
+
+        // CMND validation: exactly 9 digits
+        edtCmnd.setInputType(InputType.TYPE_CLASS_NUMBER);
+        edtCmnd.setFilters(new InputFilter[] { new InputFilter.LengthFilter(9) });
+        edtCmnd.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void afterTextChanged(Editable s) {
+                String cmnd = s.toString().trim();
+                if (!cmnd.matches("\\d{9}")) {
+                    edtCmnd.setError("CMND phải có đúng 9 chữ số");
+                } else {
+                    edtCmnd.setError(null);
+                }
+            }
+        });
+
+        // Send button click validation and handling
         btnSend.setOnClickListener(v -> {
             String name = edtName.getText().toString().trim();
             String cmnd = edtCmnd.getText().toString().trim();
+            boolean isValid = true;
 
+            // Validate name
+            if (name.isEmpty() || name.length() < 3) {
+                edtName.setError("Tên phải có ít nhất 3 ký tự");
+                isValid = false;
+            }
+
+            // Validate CMND
+            if (!cmnd.matches("\\d{9}")) {
+                edtCmnd.setError("CMND phải có đúng 9 chữ số");
+                isValid = false;
+            }
+
+            // Validate hobbies (at least one must be selected)
+            if (!cbTheThao.isChecked() && !cbAmNhac.isChecked() && !cbDuLich.isChecked()) {
+                Toast.makeText(this, "Vui lòng chọn ít nhất một sở thích", Toast.LENGTH_SHORT).show();
+                isValid = false;
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            // Get selected degree
             String degree;
             int checkedId = rgDegree.getCheckedRadioButtonId();
             if (checkedId == rbTrungCap.getId()) {
                 degree = rbTrungCap.getText().toString();
             } else if (checkedId == rbCaoDang.getId()) {
                 degree = rbCaoDang.getText().toString();
-            } else if (checkedId == rbDaiHoc.getId()) {
-                degree = rbDaiHoc.getText().toString();
             } else {
-                degree = "Chưa chọn";
+                degree = rbDaiHoc.getText().toString();
             }
 
+            // Collect hobbies
             ArrayList<String> hobbies = new ArrayList<>();
             if (cbTheThao.isChecked()) hobbies.add(cbTheThao.getText().toString());
             if (cbAmNhac.isChecked()) hobbies.add(cbAmNhac.getText().toString());
             if (cbDuLich.isChecked()) hobbies.add(cbDuLich.getText().toString());
 
+            // Get optional extra info
             String extraInfo = edtExtra.getText().toString();
 
+            // If all validations pass, start next activity
             Intent intent = new Intent(Bai1_Activity_1.this, Bai1_Activity_2.class);
             intent.putExtra(Bai1_Activity_2.EXTRA_NAME, name);
             intent.putExtra(Bai1_Activity_2.EXTRA_CMND, cmnd);
