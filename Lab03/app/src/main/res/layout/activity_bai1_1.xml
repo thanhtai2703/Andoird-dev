@@ -3,153 +3,233 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="24dp"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:weightSum="10">
+    android:weightSum="11"
+    android:background="@drawable/gradient_background">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thông tin cá nhân"
-        android:textSize="30sp"
+        android:textSize="40sp"
+        android:layout_weight="1"
+        android:textStyle="bold"
         android:textAlignment="center"
-        android:layout_marginBottom="20dp"
-        android:textColor="#FFC107"
-        android:background="#0F7F15" />
+
+        android:textColor="#FFFFFF"
+        android:shadowColor="#80000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:elevation="4dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="5"
+        android:background="#1AFFFFFF"
+        android:padding="16dp"
+        android:elevation="4dp">
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Họ và tên"
-            android:textSize="24sp" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/cmnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             android:text="CMND"
-            android:textSize="24sp" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
         <EditText
             android:id="@+id/name_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/name" />
+            android:layout_toEndOf="@id/name"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/edit_text_background"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:elevation="2dp" />
+
         <EditText
             android:id="@+id/cmnd_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name_value"
-            android:layout_toEndOf="@id/cmnd" />
+            android:layout_toEndOf="@id/cmnd"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_background"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:elevation="2dp" />
     </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bằng cấp"
-        android:textColor="#FFEB3B"
-        android:background="#2196F3"
-        android:textSize="25sp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:textAlignment="center"
-        android:layout_marginBottom="5dp"
-        />
+        android:elevation="4dp" />
 
     <RadioGroup
         android:id="@+id/radio_group_bangcap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:weightSum="3"
+        android:layout_weight="1"
+        android:background="#1AFFFFFF"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
 
         <RadioButton
+            android:layout_weight="1"
             android:id="@+id/radio_trungcap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Trung cấp"
-            android:layout_marginHorizontal="10dp"/>
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_marginHorizontal="8dp"/>
 
         <RadioButton
+            android:layout_weight="1"
             android:id="@+id/radio_caodang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cao đẳng"
-            android:layout_marginHorizontal="10dp"/>
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_marginHorizontal="8dp"/>
 
         <RadioButton
+            android:layout_weight="1"
             android:id="@+id/radio_daihoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đại học"
-            android:layout_marginHorizontal="10dp"/>
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"
+            android:layout_marginHorizontal="8dp"/>
     </RadioGroup>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sở thích"
-        android:textColor="#FFEB3B"
-        android:background="#2196F3"
-        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_weight="1"
         android:textAlignment="center"
-        android:layout_marginBottom="5dp"
-        />
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:layout_marginBottom="8dp">
+        android:padding="16dp"
+        android:layout_weight="1"
+        android:background="#1AFFFFFF"
+        android:layout_marginBottom="16dp"
+        android:weightSum="3">
 
         <CheckBox
             android:id="@+id/checkbox_thethao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thể thao" />
+            android:text="Thể thao"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"/>
 
         <CheckBox
             android:id="@+id/checkbox_amnhac"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Âm nhạc" />
+            android:text="Âm nhạc"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"/>
 
         <CheckBox
             android:id="@+id/checkbox_dulich"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Du lịch" />
+            android:text="Du lịch"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:buttonTint="#FFFFFF"/>
     </LinearLayout>
 
-    <!-- Thông tin bổ sung -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thông tin bổ sung"
         android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:layout_weight="1"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp" />
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp" />
 
     <EditText
         android:id="@+id/edt_extra_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập thông tin bổ sung (mỗi dòng một mục)"
+        android:hint="Nhập thông tin bổ sung"
+        android:textColorHint="#80FFFFFF"
+        android:textColor="#333333"
         android:inputType="textMultiLine"
         android:minLines="2"
         android:maxLines="5"
         android:gravity="top|start"
-        android:background="@android:drawable/edit_text"
-        android:padding="8dp" />
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:elevation="2dp" />
 
     <Button
         android:id="@+id/btn_send"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Gửi"
-        android:layout_marginTop="12dp" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/send_button_background"
+        android:layout_marginTop="24dp"
+        android:elevation="8dp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
