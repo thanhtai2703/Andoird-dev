@@ -3,7 +3,7 @@ package com.example.lab03;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,14 +13,13 @@ import net.sourceforge.jeval.Evaluator;
 public class Bai2_Activity extends AppCompatActivity {
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnC, btnEqual, btnPlus, btnMinus, btnMul, btnDiv;
     private Button btnDot, btnDelete;
-    private TextView tvInput;
-
-    private final StringBuilder expr = new StringBuilder();
+    private EditText etInput, etResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bai2);
+        // Initialize all buttons
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
@@ -39,13 +38,15 @@ public class Bai2_Activity extends AppCompatActivity {
         btnDiv = findViewById(R.id.btnDiv);
         btnDot = findViewById(R.id.btnDot);
         btnDelete = findViewById(R.id.delete);
-        tvInput = findViewById(R.id.tvInput);
+        etInput = findViewById(R.id.etInput);
+        etResult = findViewById(R.id.etResult);
 
-        // Digit listeners
+        // Set up digit button listeners
         View.OnClickListener digitClick = v -> {
             Button b = (Button) v;
-            appendDigit(b.getText().toString());
+            appendToDisplay(b.getText().toString());
         };
+
         btn0.setOnClickListener(digitClick);
         btn1.setOnClickListener(digitClick);
         btn2.setOnClickListener(digitClick);
@@ -56,127 +57,55 @@ public class Bai2_Activity extends AppCompatActivity {
         btn7.setOnClickListener(digitClick);
         btn8.setOnClickListener(digitClick);
         btn9.setOnClickListener(digitClick);
+        // Set up operator button listeners
+        btnPlus.setOnClickListener(digitClick);
+        btnMinus.setOnClickListener(digitClick);
+        btnMul.setOnClickListener(digitClick);
+        btnDiv.setOnClickListener(digitClick);
+        btnDot.setOnClickListener(digitClick);
 
-        // Operator listeners
-        btnPlus.setOnClickListener(v -> appendOperator("+"));
-        btnMinus.setOnClickListener(v -> appendOperator("-"));
-        btnMul.setOnClickListener(v -> appendOperator("*"));
-        btnDiv.setOnClickListener(v -> appendOperator("/"));
+        // Delete button - removes last character from input
+        btnDelete.setOnClickListener(v -> deleteLastCharacter());
 
-        // Dot
-        btnDot.setOnClickListener(v -> appendDot());
-
-        // Delete (backspace)
-        btnDelete.setOnClickListener(v -> {
-            backspace();
-            updateDisplay();
-        });
-
-        // Clear
+        // Clear button - clears all content
         btnC.setOnClickListener(v -> {
-            expr.setLength(0);
-            updateDisplay();
+            etInput.setText("");
+            etResult.setText("");
         });
 
-        // Equals
-        btnEqual.setOnClickListener(v -> evaluate());
-
-        updateDisplay();
+        // Equals button - evaluates the expression
+        btnEqual.setOnClickListener(v -> evaluateExpression());
     }
 
-    private void appendDigit(String d) {
-        // Avoid leading zeroes like "00" unless after operator
-        if (d.equals("0")) {
-            if (expr.length() == 0) {
-                expr.append('0');
-                updateDisplay();
-                return;
-            }
-            // If last char is operator, allow 0
+    private void appendToDisplay(String value) {
+        String currentText = etInput.getText().toString();
+        etInput.setText(currentText + value);
+    }
+
+    private void deleteLastCharacter() {
+        String currentText = etInput.getText().toString();
+        if (!currentText.isEmpty()) {
+            etInput.setText(currentText.substring(0, currentText.length() - 1));
         }
-        expr.append(d);
-        updateDisplay();
     }
 
-    private boolean isOperatorChar(char c) {
-        return c == '+' || c == '-' || c == '*' || c == '/';
-    }
+    private void evaluateExpression() {
+        String expression = etInput.getText().toString().trim();
 
-    private void appendOperator(String op) {
-        if (expr.length() == 0) {
-            // Only allow '-' as leading to start negative numbers
-            if (op.equals("-")) {
-                expr.append('-');
-            }
-            updateDisplay();
+        if (expression.isEmpty()) {
             return;
         }
-        // Replace trailing operator with the new one
-        char last = expr.charAt(expr.length() - 1);
-        if (isOperatorChar(last)) {
-            expr.setCharAt(expr.length() - 1, op.charAt(0));
-        } else {
-            expr.append(op);
-        }
-        updateDisplay();
-    }
 
-    private void appendDot() {
-        if (expr.length() == 0) {
-            expr.append("0.");
-            updateDisplay();
-            return;
-        }
-        // Prevent consecutive dots and multiple dots in the current number token
-        int i = expr.length() - 1;
-        while (i >= 0 && !isOperatorChar(expr.charAt(i))) {
-            if (expr.charAt(i) == '.') {
-                // already has a dot in this number
-                return;
-            }
-            i--;
-        }
-        char last = expr.charAt(expr.length() - 1);
-        if (isOperatorChar(last)) {
-            expr.append('0');
-        }
-        expr.append('.');
-        updateDisplay();
-    }
-
-    private void backspace() {
-        if (expr.length() > 0) {
-            expr.deleteCharAt(expr.length() - 1);
-        }
-    }
-
-    private void evaluate() {
-        // Trim trailing operator if present
-        while (expr.length() > 0 && isOperatorChar(expr.charAt(expr.length() - 1))) {
-            expr.deleteCharAt(expr.length() - 1);
-        }
-        if (expr.length() == 0) {
-            tvInput.setText("");
-            return;
-        }
-        String expression = expr.toString();
         try {
             Evaluator evaluator = new Evaluator();
             String result = evaluator.evaluate(expression);
-            // Normalize result (strip trailing .0)
             if (result != null && result.endsWith(".0")) {
                 result = result.substring(0, result.length() - 2);
             }
-            tvInput.setText(result);
-            expr.setLength(0);
-            if (result != null) expr.append(result);
+            etResult.setText(result);
+            etInput.setText("");
         } catch (EvaluationException e) {
-            tvInput.setText("Error");
-            expr.setLength(0);
+            etResult.setText("Error");
         }
-    }
-
-    private void updateDisplay() {
-        tvInput.setText(expr.toString());
     }
 }

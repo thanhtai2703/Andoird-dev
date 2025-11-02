@@ -15,7 +15,6 @@
             android:name=".Bai2_Activity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="landscape"
             android:theme="@style/Theme.Lab03.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
