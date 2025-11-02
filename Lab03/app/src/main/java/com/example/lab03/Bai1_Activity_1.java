@@ -33,7 +33,6 @@ public class Bai1_Activity_1 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         // Inputs
         EditText edtName = findViewById(R.id.name_value);
         EditText edtCmnd = findViewById(R.id.cmnd_value);
@@ -46,10 +45,8 @@ public class Bai1_Activity_1 extends AppCompatActivity {
         CheckBox cbDuLich = findViewById(R.id.checkbox_dulich);
         EditText edtExtra = findViewById(R.id.edt_extra_info);
         Button btnSend = findViewById(R.id.btn_send);
-
         // Set Đại học as default
         rbDaiHoc.setChecked(true);
-
         // Name validation: not empty and at least 3 characters
         edtName.addTextChangedListener(new TextWatcher() {
             @Override
