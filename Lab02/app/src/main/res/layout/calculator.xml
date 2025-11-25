@@ -17,7 +17,7 @@
         android:layout_marginStart="8dp"
         android:textSize="20dp"
         android:layout_marginBottom="8dp" />
-<!--    Hiển thị kết quả:-->
+    <!-- ô nhập -->
     <EditText
         android:id="@+id/edtInput"
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
         android:padding="8dp"
         android:singleLine="true"
         android:importantForAutofill="no" />
-<!--    Các nút tính toán-->
+<!--    các nút -->
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

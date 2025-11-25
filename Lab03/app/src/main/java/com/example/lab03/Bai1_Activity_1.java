@@ -100,8 +100,6 @@ public class Bai1_Activity_1 extends AppCompatActivity {
                 edtCmnd.setError("CMND phải có đúng 9 chữ số");
                 isValid = false;
             }
-
-            // Validate hobbies (at least one must be selected)
             if (!cbTheThao.isChecked() && !cbAmNhac.isChecked() && !cbDuLich.isChecked()) {
                 Toast.makeText(this, "Vui lòng chọn ít nhất một sở thích", Toast.LENGTH_SHORT).show();
                 isValid = false;
@@ -121,17 +119,12 @@ public class Bai1_Activity_1 extends AppCompatActivity {
             } else {
                 degree = rbDaiHoc.getText().toString();
             }
-
-            // Collect hobbies
             ArrayList<String> hobbies = new ArrayList<>();
             if (cbTheThao.isChecked()) hobbies.add(cbTheThao.getText().toString());
             if (cbAmNhac.isChecked()) hobbies.add(cbAmNhac.getText().toString());
             if (cbDuLich.isChecked()) hobbies.add(cbDuLich.getText().toString());
 
-            // Get optional extra info
             String extraInfo = edtExtra.getText().toString();
-
-            // If all validations pass, start next activity
             Intent intent = new Intent(Bai1_Activity_1.this, Bai1_Activity_2.class);
             intent.putExtra(Bai1_Activity_2.EXTRA_NAME, name);
             intent.putExtra(Bai1_Activity_2.EXTRA_CMND, cmnd);
