@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lab04</string>
+    <string name="checked_true">checked=true</string>
+    <string name="checked_false">checked=false</string>
+</resources>
